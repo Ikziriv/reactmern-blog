@@ -4,13 +4,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookiesParser = require("cookie-parser");
 
+const config = require("./config/key");
 const { User } = require("./models/user");
 // Connect mongodb atlas srv
 mongoose
-  .connect(
-    "mongodb+srv://Kingpoxxx:qwerty123@react-blog-rn7is.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true },
-  )
+  .connect(config.mongoURI, { useNewUrlParser: true })
   .then(() => console.log("Mongo Connected"))
   .catch(err => console.log(err));
 
